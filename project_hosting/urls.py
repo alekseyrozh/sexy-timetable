@@ -14,6 +14,6 @@ urlpatterns = [
     # url(r'^$', sexy_timetable.views.index, name='index'),
     url(r'^db', sexy_timetable.views.db, name='db'),
     # url(r'^signup/$', sexy_timetable.views.signup, name='signup'),
-    url(r'^/$', sexy_timetable.views.signup, name='signup'),
+    url(r'^$', sexy_timetable.views.signup, name='signup'),
     path('admin/', admin.site.urls),
 ]
