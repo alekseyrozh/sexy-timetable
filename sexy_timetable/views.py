@@ -53,6 +53,6 @@ def signup_success(request):
 
 
 @login_required
-def unsubscribe_success(request):
+def unsubscribe(request):
     return render(request, 'registration/subscribed.html',
                   {'user': request.user})
