@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -44,3 +45,8 @@ class UserFormView(View):
                     return redirect(reverse("signup_success"))
         return render(request, self.template_name, {'form': form})
 
+
+@login_required
+def signup_success(request):
+    return render(request, 'registration/subscribed.html',
+                  {'user': request.user})
