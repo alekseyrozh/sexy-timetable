@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.urls import reverse
 from django.views import View
 
 from sexy_timetable.forms import UserForm
@@ -12,6 +13,7 @@ from .models import Greeting
 def index(request):
     # return HttpResponse('Hello from Python!')
     # TODO: proper index
+                    # TODO: redirect properly
     return render(request, 'index.html')
 
 
@@ -39,7 +41,6 @@ class UserFormView(View):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    # TODO: redirect properly
-                    return redirect("ololololo")
+                    return redirect(reverse("signup_success"))
         return render(request, self.template_name, {'form': form})
 

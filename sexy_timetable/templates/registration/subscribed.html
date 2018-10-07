@@ -1,0 +1,26 @@
+{% extends "registration/register_base.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}{{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}">
+    {{ form.media }}
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} login {% endblock %}
+
+{% block usertools %}{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+    <div id="content-main">
+        <p class="">
+            You are successfully signed up for a weekly UCL timetable updates. It's gonna be sent to <b>{{ activated_user.username }}</b> every Friday evening. </br>Enjoy! </br>
+            <u> To unsubscribe, follow the corresponding link in the email. </u>
+        </p>
+    </div>
+{% endblock %}
