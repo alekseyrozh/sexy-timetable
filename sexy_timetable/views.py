@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -41,8 +41,10 @@ class UserFormView(View):
 
 @login_required
 def signup_success(request):
+    user = request.user
+    logout(request)
     return render(request, 'registration/subscribed.html',
-                  {'user': request.user})
+                  {'user': user})
 
 
 @login_required
