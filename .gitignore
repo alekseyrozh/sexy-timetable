@@ -4,3 +4,4 @@ staticfiles
 .env
 db.sqlite3
 .idea/
+sexy_timetable/generator/new_timetables
