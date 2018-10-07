@@ -17,7 +17,7 @@ def index(request):
 
 class UserFormView(View):
     form_class = UserForm
-    template_name = 'registration.html'
+    template_name = 'registration/registration.html'
 
     def get(self, request):
         form = self.form_class(None)
