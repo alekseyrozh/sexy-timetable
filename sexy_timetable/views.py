@@ -50,3 +50,9 @@ class UserFormView(View):
 def signup_success(request):
     return render(request, 'registration/subscribed.html',
                   {'user': request.user})
+
+
+@login_required
+def unsubscribe_success(request):
+    return render(request, 'registration/subscribed.html',
+                  {'user': request.user})
