@@ -12,8 +12,7 @@ import sexy_timetable.views
 
 urlpatterns = [
     # url(r'^$', sexy_timetable.views.index, name='index'),
-    url(r'^db', sexy_timetable.views.db, name='db'),
-    # url(r'^signup/$', sexy_timetable.views.signup, name='signup'),
-    url(r'^$', sexy_timetable.views.signup, name='signup'),
+    # url(r'^db', sexy_timetable.views.db, name='db'),
+    url(r'^signup', sexy_timetable.views.UserFormView.as_view(), name='signup'),
     path('admin/', admin.site.urls),
 ]

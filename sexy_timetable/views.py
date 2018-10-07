@@ -2,35 +2,44 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.views import View
 
+from sexy_timetable.forms import UserForm
 from .models import Greeting
+
 
 # Create your views here.
 def index(request):
     # return HttpResponse('Hello from Python!')
+    # TODO: proper index
     return render(request, 'index.html')
 
 
-def db(request):
+class UserFormView(View):
+    form_class = UserForm
+    template_name = 'registration.html'
 
-    greeting = Greeting()
-    greeting.save()
+    def get(self, request):
+        form = self.form_class(None)
+        return render(request, self.template_name, {'form': form})
 
-    greetings = Greeting.objects.all()
+    def post(self, request):
+        form = self.form_class(request.POST)
 
-    return render(request, 'db.html', {'greetings': greetings})
-
-
-def signup(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
+            user = form.save(commit=False)
+            username = form.cleaned_data['username']
+            raw_password = form.cleaned_data['password']
+
+            user.set_password(raw_password)
+            user.save()
+
             user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('home')
-    else:
-        form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    # TODO: redirect properly
+                    return redirect("ololololo")
+        return render(request, self.template_name, {'form': form})
+
