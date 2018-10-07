@@ -1,4 +1,13 @@
-{% extends "registration/register_base.html" %}
+{% extends "admin/base.html" %}
+
+{% block title %}{{ 'Weekly UCL Timetable' }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a>{{'Successfully subscribed' }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
 {% load i18n static %}
 
 {% block extrastyle %}{{ block.super }}
@@ -10,8 +19,6 @@
 
 {% block usertools %}{% endblock %}
 
-{% block nav-global %}{% endblock %}
-
 {% block content_title %}{% endblock %}
 
 {% block breadcrumbs %}{% endblock %}
@@ -19,10 +26,9 @@
 {% block content %}
     <div id="content-main">
         <p class="">
-            You are successfully signed up for a weekly UCL timetable updates. It's gonna be sent to <b>{{ user.username }}</b> every Friday evening.
-
-            </br>Enjoy! </br></br>
-
+            You are successfully signed up for a weekly UCL timetable updates. It's gonna be sent to <b>{{ user.username }}</b> every Friday evening. Enjoy!
+            </br>
+            </br>
             <i> To unsubscribe click <a class="nav-link" href="{% url 'unsubscribe' %}">here</a> or follow the corresponding link in the email. </i>
         </p>
     </div>
