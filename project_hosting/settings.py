@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import django_heroku
+from django.urls import reverse_lazy
+
+
+# LOGIN_REDIRECT_URL=reverse_lazy('participants')
+LOGIN_URL=reverse_lazy('signup')
+# LOGOUT_URL=reverse_lazy('logout')
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)

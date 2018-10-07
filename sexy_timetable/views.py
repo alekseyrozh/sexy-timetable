@@ -1,21 +1,14 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.urls import reverse
 from django.views import View
 
 from sexy_timetable.forms import UserForm
-from .models import Greeting
 
 
-# Create your views here.
 def index(request):
-    # return HttpResponse('Hello from Python!')
-    # TODO: proper index
-                    # TODO: redirect properly
-    return render(request, 'index.html')
+    return redirect(reverse('signup'))
 
 
 class UserFormView(View):
@@ -54,5 +47,7 @@ def signup_success(request):
 
 @login_required
 def unsubscribe(request):
+    # TODO: redirect properly
     return render(request, 'registration/subscribed.html',
                   {'user': request.user})
+

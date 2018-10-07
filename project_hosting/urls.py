@@ -11,7 +11,7 @@ import sexy_timetable.views
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
-    # url(r'^$', sexy_timetable.views.index, name='index'),
+    url(r'^$', sexy_timetable.views.index, name='index'),
     # url(r'^db', sexy_timetable.views.db, name='db'),
     url(r'^signup$', sexy_timetable.views.UserFormView.as_view(), name='signup'),
     url(r'^signup_success$', sexy_timetable.views.signup_success, name='signup_success'),
