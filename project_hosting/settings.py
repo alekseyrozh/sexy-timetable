@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sexy_timetable',
-    'django_registration'
+    # 'django_registration'
 ]
 
 MIDDLEWARE = [
