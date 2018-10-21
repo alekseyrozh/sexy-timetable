@@ -1,16 +1,12 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 
-
 [packages]
-
 django = "==2.1.2"
 gunicorn = "==19.7.1"
 django-heroku = "==0.1.0"
-
+pyppeteer = "*"
 
 [requires]
-
 python_version = "3.6"
