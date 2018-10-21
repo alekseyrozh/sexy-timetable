@@ -13,7 +13,7 @@ def index(request):
 
 class UserFormView(View):
     form_class = UserForm
-    template_name = 'registration/registration.html'
+    template_name = 'django_registration/register_form.html'
 
     def get(self, request):
         form = self.form_class(None)
@@ -36,6 +36,7 @@ class UserFormView(View):
                 if user.is_active:
                     login(request, user)
                     return redirect(reverse("signup_success"))
+
         return render(request, self.template_name, {'form': form})
 
 
@@ -43,13 +44,13 @@ class UserFormView(View):
 def signup_success(request):
     user = request.user
     logout(request)
-    return render(request, 'registration/subscribed.html',
+    return render(request, 'django_registration/subscribed.html',
                   {'user': user})
 
 
-@login_required
-def unsubscribe(request):
-    # TODO: redirect properly
-    return render(request, 'registration/subscribed.html',
-                  {'user': request.user})
+# @login_required
+# def unsubscribe(request):
+#     # TODO: redirect properly
+#     return render(request, 'registration/subscribed.html',
+#                   {'user': request.user})
 

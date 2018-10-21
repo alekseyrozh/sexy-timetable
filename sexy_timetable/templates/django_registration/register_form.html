@@ -1,8 +1,8 @@
-{% extends "registration/register_base.html" %}
+{% extends "django_registration/register_base.html" %}
 {% load i18n static %}
 
 {% block extrastyle %}{{ block.super }}
-    <link rel="stylesheet" type="text/css" href="{% static "my_css/my_login.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}">
     {{ form.media }}
 {% endblock %}
 
@@ -17,6 +17,7 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block content %}
+
     {% if form.errors and not form.non_field_errors %}
         <p class="errornote">
             {% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}
@@ -32,6 +33,9 @@
         {% endfor %}
     {% endif %}
 
+
+
+
     <div id="content-main">
 
         {% if user.is_authenticated %}
@@ -43,25 +47,28 @@
             </p>
         {% endif %}
 
-        <form action="{{ app_path }}" method="post">{% csrf_token %}
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+
+        <form action="{{ app_path }}" method="post" id="signup_form">{% csrf_token %}
 
             <div class="form-row">
                 {{ form.username.errors }}
-                <label for="{{ form.username.id_for_label }}">UCL Email:</label>
+                <label for="{{ form.username.id_for_label }}">Username:</label>
                 {{ form.username }}
             </div>
             <div class="form-row">
                 {{ form.password.errors }}
-                <label for="{{ form.password.id_for_label }}">UCL Password:</label>
+                <label for="{{ form.password.id_for_label }}">Password:</label>
                 {{ form.password }}
             </div>
-
 
             <div style="text-align: center;">
                 <input type="submit" value="{% trans 'Sign Up' %}">
             </div>
         </form>
-
+{##}
+{##}
 {#        <div style="text-align: center; margin-top: 10px">#}
 {#            <a class="nav-link" href="{% url 'login' %}">Go to login</a>#}
 {#        </div>#}
