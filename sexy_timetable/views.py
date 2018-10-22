@@ -79,7 +79,7 @@ def create_screenshot():
 
 
 async def main():
-    browser = await launch('--no-sandbox', '--disable-setuid-sandbox')
+    browser = await launch(options={'args': ['--no-sandbox', '--disable-setuid-sandbox']})
     page = await browser.newPage()
     await page.setViewport({'width':1000, 'height':1700})
     dimensions = await page.evaluate('''() => {
