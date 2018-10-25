@@ -15,6 +15,7 @@ urlpatterns = [
     # url(r'^db', sexy_timetable.views.db, name='db'),
     url(r'^signup$', sexy_timetable.views.UserFormView.as_view(), name='signup'),
     url(r'^signup_success$', sexy_timetable.views.signup_success, name='signup_success'),
+    url(r'^send_timetable', sexy_timetable.views.send_timetable, name='send_timetable'),
 
     # url(r'^unsubscribe$', sexy_timetable.views.unsubscribe, name='unsubscribe'),
     path('admin/', admin.site.urls),

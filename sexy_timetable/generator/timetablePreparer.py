@@ -1,5 +1,5 @@
 """Prepares screenshot of timetable to be of correct size and transparency"""
-import phoneInfo as phone
+import sexy_timetable.generator.phoneInfo as phone
 
 from PIL import Image
 

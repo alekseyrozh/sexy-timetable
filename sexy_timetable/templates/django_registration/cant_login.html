@@ -1,4 +1,4 @@
-{% extends "django_registration/base.html" %}
+{% extends "django_registration/register_base.html" %}
 {% load i18n static %}
 
 {% block extrastyle %}{{ block.super }}
@@ -19,13 +19,12 @@
 {% block content %}
 
    <div id="content-main">
-        <p class="">
-            You have been successfully subscribed!
-        </p>
-
-        <div style="text-align: center; margin-top: 10px">
-           <a class="nav-link" href="{% url 'send_timetable' %}">Send me timetable!</a>
-        </div>
+       <p class="">
+           I can't login!
+       </p>
+       <div style="text-align: center; margin-top: 10px">
+           <a class="nav-link" href="{% url 'signup' %}">Try again</a>
+       </div>
     </div>
 
 {% endblock %}

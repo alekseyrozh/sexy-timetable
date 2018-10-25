@@ -1,5 +1,5 @@
 from PIL import Image
-import phoneInfo as phone
+import sexy_timetable.generator.phoneInfo as phone
 
 
 def resize_back_time(background, timetable):
