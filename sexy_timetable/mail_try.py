@@ -10,7 +10,7 @@ from io import BytesIO
 
 
 def send_pic(user, screenshot):
-    sg = sendgrid.SendGridAPIClient(apikey='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')
+    sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
     from_email = Email("weekly.timetable@ucl.ac.uk")
     subject = "Choose the favourite one!"
     to_email = Email("alekseyrozh@gmail.com")
