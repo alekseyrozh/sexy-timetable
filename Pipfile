@@ -8,6 +8,7 @@ gunicorn = "==19.7.1"
 django-heroku = "==0.1.0"
 pyppeteer = "*"
 pillow = "*"
+sendgrid="*"
 
 [requires]
 python_version = "3.6"
